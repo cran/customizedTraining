@@ -1,8 +1,15 @@
 predict.customizedGlmnet <-
-function(object, lambda, ...)
+function(object, lambda, type = c('response', 'class'), ...)
 {
+    type = match.arg(type)
     groups = as.character(sort(unique(object$groupid)))
     prediction = matrix(NA, nrow(object$x$test), length(lambda))
+
+    if (object$family == 'multinomial' & type == 'response') {
+      K = length(unique(object$y))
+      prediction = array(NA, c(nrow(object$x$test), length(lambda), K),
+        dimnames = list(NULL, NULL, sort(unique(object$y))))
+    }
 
     for (group in groups) {
 
@@ -12,13 +19,15 @@ function(object, lambda, ...)
             x = t(x)
         }
 
-        type = "response"
-        if (is.element(object$family, c("binomial", "multinomial"))) {
-            type = "class"
-        }
-
+      if (object$family == 'multinomial' & type == 'response') {
+        prediction[object$groupid == group, , ] = 0
+        prediction[object$groupid == group, , object$fit[[group]]$classnames] =
+          predict(object$fit[[group]], x, s = lambda/object$fit[[group]]$nobs,
+          type = type, ...)[, , 1]
+      } else {
         prediction[object$groupid == group, ] = predict(object$fit[[group]],
-            x, s = lambda/object$fit[[group]]$nobs, type = type)
+            x, s = lambda/object$fit[[group]]$nobs, type = type, ...)
+      }
     }
 
     prediction

@@ -8,12 +8,16 @@ make predictions from a ``singleton'' object
 Returns the value stored in the singleton. Intended for internal use only.
 }
 \usage{
-\method{predict}{singleton}(object, ...)
+\method{predict}{singleton}(object, type = c('response', 'class', 'nonzero'),
+  ...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{object}{
 an object of class \code{singleton}
+}
+  \item{type}{
+Type of prediction to be returned, "response" or "class"
 }
   \item{\dots}{
 ignored

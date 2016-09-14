@@ -1,7 +1,7 @@
 predict.singleton <-
-function(object, ...)
+function(object, type = c('response', 'class', 'nonzero'), ...)
 {
-    if (!is.null(levels(object))) {
-    	return(levels(object))
-    } else return(object)
+  type = match.arg(type)
+  if (type == 'nonzero') return(NULL)
+  return(object[[type]])
 }
