@@ -1,4 +1,4 @@
-4623941f76df0ad137d033e894e4fcbc *DESCRIPTION
+a7202692e57497e24b6eb293c3d22c6f *DESCRIPTION
 1d425838f2f3dd83e15452b638b4a354 *NAMESPACE
 39deb7b8a1d64da6aa64b2c7cf507bab *R/customizedGlmnet.R
 456dbaaebcfe95f77d01a9052bea1135 *R/cv.customizedGlmnet.R
@@ -12,10 +12,10 @@
 4a7e69c9f7351b31e78dee65cf5e047b *R/predict.singleton.R
 59177bdbe74ade020fc9ef37d2ecba0e *R/print.customizedGlmnet.R
 191376632ba7fccee40cdf25a1e49d42 *R/print.cv.customizedGlmnet.R
+314e27f2660bb5d0af9fd57c69439102 *README.md
 483ede3b1565c9b8f1ee61bad5110d76 *data/Vowel.rda
 880627377c46188ee0620816ea38a8f5 *man/Vowel.Rd
 1f707242540928ef9bf140987e9b9c1b *man/customizedGlmnet.Rd
-b7e1af8f6bca33810f616327dae1c193 *man/customizedTraining-package.Rd
 cfab3209ab9d0cd4116cba739362f884 *man/cv.customizedGlmnet.Rd
 57e241b61eba4ff4f944005bec49f507 *man/nonzero.Rd
 7279c75ff52a36efb547fa6a8c7ec1f8 *man/nonzero.customizedGlmnet.Rd
